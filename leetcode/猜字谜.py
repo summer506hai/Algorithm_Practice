@@ -5,6 +5,18 @@
 谜底单词列表，以 , 分割
 输出： 匹配到 正确单词列表，以 , 分割，匹配不到 返回  not found
 1、变换顺序后 一样 2、字母去重后一样 —— 算匹配上
+示例：
+输入 
+conection
+connection,today
+输出：
+connection
+输入：
+bdni,wood
+bind,wrong,wood
+输出：
+bind,wood
+
 '''
 
 def remove_duplicates(question, answer):
