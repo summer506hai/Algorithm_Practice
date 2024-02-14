@@ -7,23 +7,6 @@
 2、newspaper内容中的每个字符串字母顺序可以任意调整，但必须保证字符串的完整性（每个字符串不能由多余字母）
 3、1<N<100,1<newspaper.length< anonymousLetter.length<=104
 输出描述：如果报纸可以拼成匿名信返回true，否则返回false
-示例
-输入 
-ab cd
-ab
-输出 true
-输入 
-ab ef
-aef
-输出 false
-输入 
-ab bcd ef
-cbd fe
-输出 true
-输入 
-ab bcd ef
-cd fe
-输出 false
 '''
 
 def splicing(newspaper,anonymous_letter):
@@ -35,9 +18,9 @@ def splicing(newspaper,anonymous_letter):
        return True
     return False
 
-if __name__ == "__main__":
-    newspaper = input().split(" ")
-    anonymous_letter = input().split(" ")
+def dividing_line(newspaper,anonymous_letter):
+    newspaper = newspaper.split(" ")
+    anonymous_letter = anonymous_letter.split(" ")
     for item in anonymous_letter:
         flag = False
         for item2 in newspaper:
@@ -46,5 +29,18 @@ if __name__ == "__main__":
                 break
         if not flag:
             print(False)
-            exit(0)
+            return False
     print(True)
+    return True
+
+def test():
+    assert dividing_line("ab cd", "ab")
+    assert not dividing_line("ab ef", "aef")
+    assert dividing_line("ab bcd ef", "cbd fe")
+    assert not dividing_line("ab bcd ef", "cd fe")
+
+if __name__ == "__main__":
+    test()
+    # newspaper = input()
+    # anonymous_letter = input()
+    # dividing_line(newspaper, anonymous_letter)
